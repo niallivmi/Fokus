@@ -11,6 +11,11 @@ const musica = new Audio ('/sons/luna-rise-part-one.mp3')
 const audioPlay = new Audio ('/sons/play.wav')
 const audioPausa = new Audio ('/sons/pause.mp3')
 const audioTempoFinalizado = new Audio ('./sons/beep.mp3')
+const iniciarOuPausarBt = document.querySelector('#start-pause span')
+const imagemStartPause = document.querySelector('#start-pause img')
+
+const imagemPlay = '/imagens/play_arrow.png'
+const imagemPause = '/imagens/pause.png'
 
 let tempoDecorridoEmSegundos = 5
 let intervaloId = null
@@ -66,7 +71,7 @@ longoBt.addEventListener('click', () => {
 
 const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos<=0){
-        audioTempoFinalizado.play()
+        //audioTempoFinalizado.play()
         zerar ()
         alert("Tempo finalizado!")
         return
@@ -86,9 +91,13 @@ function iniciarOuPausar(){
     }
     audioPlay.play()
     intervaloId = setInterval(contagemRegressiva, 1000)
+    iniciarOuPausarBt.textContent = "Pausar"
+    imagemStartPause.src = imagemPause
 }
 
 function zerar (){
     clearInterval(intervaloId)
+    iniciarOuPausarBt.textContent = "Começar"
+    imagemStartPause.src = imagemPlay
     intervaloId = null
 }
