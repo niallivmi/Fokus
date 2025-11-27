@@ -76,9 +76,8 @@ longoBt.addEventListener('click', () => {
 
 const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos<=0){
-        //audioTempoFinalizado.play()
+        audioTempoFinalizado.play()
         zerar ()
-        alert("Tempo finalizado!")
         return
     }
     tempoDecorridoEmSegundos -=1
